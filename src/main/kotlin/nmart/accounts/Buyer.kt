@@ -53,7 +53,7 @@ class Buyer(
                 "1. yes\n" +
                 "2. no")
         return if (utilClass.getChoice() == 1) {
-            println("payment successful. your order is ready to ship!")
+            println("payment successful. you will be notified once the order is ready to get shipped!")
             true
         } else {
             false

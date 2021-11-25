@@ -1,6 +1,6 @@
 package nmart.utils
 
-enum class OrderStatus {
+enum class ShipmentStatus {
     UNSHIPPED, PENDING, SHIPPED, COMPLETED, CANCELED
 }
 

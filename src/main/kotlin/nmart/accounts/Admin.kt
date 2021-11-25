@@ -33,8 +33,14 @@ class Admin(
     }
 
     private fun getMemberToChangeStatus(): Account {
+        var account: Account
         with(memberController) {
-            return utilClass.getItem(getAccounts())
+            account = utilClass.getItem(getAccounts())
+            while (account.id == accountId) {
+                println("this is your id(ADMIN). You should not block yourself!")
+                account = utilClass.getItem(getAccounts())
+            }
+            return account
         }
     }
 

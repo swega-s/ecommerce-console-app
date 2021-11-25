@@ -1,13 +1,13 @@
 package nmart.orders
 
-import nmart.utils.OrderStatus
+import nmart.utils.ShipmentStatus
 import java.time.Instant
 import java.util.*
 
 class Order(
     val orderNumber: Int = order++,
     val items: List<Item>,
-    var orderStatus: OrderStatus = OrderStatus.PENDING,
+    var shipmentStatus: ShipmentStatus = ShipmentStatus.PENDING,
     private val orderDate: Date = Date.from(Instant.now())
 ) {
 

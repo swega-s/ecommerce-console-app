@@ -8,7 +8,7 @@ import nmart.orders.ShoppingCart
 import nmart.search.Catalog
 import nmart.accounts.*
 import nmart.utils.AccountStatus
-import nmart.utils.OrderStatus
+import nmart.utils.ShipmentStatus
 import nmart.utils.UtilClass
 import kotlin.system.exitProcess
 
@@ -265,7 +265,7 @@ private fun performCustomerOptions(
                                 choice = utilClass.getChoice()
                             }
                             val order = orders[choice]!!
-                            if (order.orderStatus == OrderStatus.PENDING) {
+                            if (order.shipmentStatus == ShipmentStatus.PENDING) {
                                 order.items.forEach {
                                     it.quantity = -it.quantity
                                     products.updateProductCount(order.items)
