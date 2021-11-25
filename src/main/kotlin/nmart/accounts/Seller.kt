@@ -24,17 +24,9 @@ class Seller(
             price = 20, category = category,
             available_item_count = 20
         ).also {
-            it.sellerAccounts.add(this)
+            it.sellerAccounts.add(this.accountId)
         }
         productsDb.addProduct(newProduct)
     }
 
-    // update a product
-    fun updateProduct(product: Product) {
-        if (this in product.sellerAccounts) {
-            productsDb.addProduct(product)
-        } else {
-            println("this is not your product to update")
-        }
-    }
 }

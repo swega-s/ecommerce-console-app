@@ -2,8 +2,9 @@ package nmart.search
 
 import nmart.product.Product
 
+// a catalog or menu class which displays products available
 class Catalog(
-    private var products: Map<String, Product> // create maps to have name and category mappings
+    private var products: Map<String, Product>
 ) : Search {
 
     // return products by comparing name

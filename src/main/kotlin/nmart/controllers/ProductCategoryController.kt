@@ -4,6 +4,9 @@ import nmart.product.ProductCategory
 import nmart.utilClass
 
 var categoriesInitialized = false
+
+// controller which handles the product category db
+
 class ProductCategoryController {
 
     fun addCategory(productCategory: ProductCategory) {

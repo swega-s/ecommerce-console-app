@@ -25,10 +25,6 @@ fun main() {
 
     // choosing the usertype
     // consider this as the stage when you open an ecommerce app and choosing which user you are!
-    //. guest -> a customer who simply browses without an account
-    //. buyer -> a registered candidate(customer) who comes to the app to buy things online
-    //. seller -> a registered candidate who comes to the app to sell things
-    //. admin -> a registered candidate and one who controls management of the software
 
     while (true) {
         println("1. Guest\n2. Registered account( Buyer/ Seller/ Admin)\n3. exit")
@@ -41,7 +37,7 @@ fun main() {
                 performCustomerOptions(guest, catalog, products)
             }
             2    -> {
-                when (val user = login.login()) {
+                when (val user = login.getValidatedAccount()) {
                     is Buyer -> repeatUntilBreak {
                         performCustomerOptions(user, catalog, products)
                     }

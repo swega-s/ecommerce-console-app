@@ -6,6 +6,9 @@ import nmart.product.Product
 import nmart.product.ProductCategory
 
 var productsInitialized = false
+
+// controller which handles the products db
+
 class ProductController {
     val products: Map<String, Product> = ProductsDb.products
 
@@ -39,11 +42,11 @@ private object ProductsDb {
 
     private fun initializeProducts() {
         val product1 = Product(id = "p1", name = "rise", description = "this is rise", price = 100,
-                                category = ProductCategory(id = 1, "soap"), available_item_count = 100)
+            category = ProductCategory(id = 1, "soap"), available_item_count = 100).also { it.sellerAccounts.add(2) }
         val product2 = Product(id = "p2", name = "rise", description = "this is rise", price = 100,
-            category = ProductCategory(id = 2, "soap"), available_item_count = 100)
+            category = ProductCategory(id = 2, "soap"), available_item_count = 100).also { it.sellerAccounts.add(2) }
         val product3 = Product(id = "p3", name = "dabbar", description = "this is dabbar", price = 100,
-            category = ProductCategory(id = 3, "tooth paste"), available_item_count = 100)
+            category = ProductCategory(id = 3, "tooth paste"), available_item_count = 100).also { it.sellerAccounts.add(2) }
         addProduct(product1)
         addProduct(product2)
         addProduct(product3)

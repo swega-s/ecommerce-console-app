@@ -2,10 +2,19 @@ package nmart.utils
 
 import nmart.orders.Item
 import nmart.product.ProductCategory
+import nmart.utilClass
 import java.lang.Exception
 
 // Utilclass -> a helper class
 class UtilClass {
+
+    fun getCredentials(): Pair<String, String> {
+        print("Enter username: ")
+        val username = utilClass.getStringInput()// read username
+        print("Enter password: ")
+        val password = utilClass.getStringInput() // read password
+        return Pair(username, password)
+    }
 
     // getitem - function overloaded based on the function arguments
     fun getItem(itemMap: Map<String, Account>): Account {

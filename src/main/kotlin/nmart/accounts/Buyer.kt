@@ -23,7 +23,7 @@ class Buyer(
     }
 
     private fun placeOrder(order: Order): Boolean {
-        return if (order.makePayment()) {
+        return if (makePayment()) {
             orders[order.orderNumber] = order
             clearItemsFromCart()
             viewMyOrderedItems()
@@ -43,4 +43,20 @@ class Buyer(
     }
 
     private fun clearItemsFromCart() = cart.checkout()
+
+    private fun makePayment(): Boolean { // should add details about payment in argument
+
+        println("Total amount to pay: ${
+            utilClass.getAmount(cart.getItems()) { quantity: Int, price: Int -> quantity * price }
+        }")
+        println("Confirm payment?\n" +
+                "1. yes\n" +
+                "2. no")
+        return if (utilClass.getChoice() == 1) {
+            println("payment successful. your order is ready to ship!")
+            true
+        } else {
+            false
+        }
+    }
 }

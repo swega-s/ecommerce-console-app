@@ -1,8 +1,8 @@
 package nmart.authenticate
 
-import nmart.utilClass
 import nmart.accounts.RegAccount
 import nmart.controllers.MemberController
+import nmart.utilClass
 import nmart.utils.Account
 import nmart.utils.AccountStatus
 
@@ -28,11 +28,8 @@ class Log(private val memberController: MemberController) {
         }
     }
 
-    fun login(): RegAccount {
-        print("Enter username: ")
-        val username = utilClass.getStringInput()// read username
-        print("Enter password: ")
-        val password = utilClass.getStringInput() // read password
-        return validateUser(username, password) ?: login()
+    fun getValidatedAccount(): RegAccount {
+        val (username, password) = utilClass.getCredentials()
+        return validateUser(username, password) ?: getValidatedAccount()
     }
 }

@@ -7,6 +7,7 @@ import nmart.accounts.*
 
 private var itemsInitialized = false
 
+// controller which handles the member db
 class MemberController {
     private val members = MemDb.members
     private val accounts = MemDb.accounts
@@ -14,11 +15,11 @@ class MemberController {
         members[accounts["admin"]?.id] as Admin
     }
 
-    fun getAccounts(): MutableMap<String, Account> {
+    fun getAccounts(): Map<String, Account> {
         return accounts
     }
 
-    fun getMembers(): MutableMap<Int, RegAccount> {
+    fun getMembers(): Map<Int, RegAccount> {
         return members
     }
 

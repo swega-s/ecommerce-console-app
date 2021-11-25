@@ -1,7 +1,5 @@
 package nmart.product
 
-import nmart.accounts.Seller
-
 data class Product(
     val id: String,
     val name: String,
@@ -10,7 +8,7 @@ data class Product(
     val category: ProductCategory,
     var available_item_count: Int = 0,
 
-    val sellerAccounts: MutableList<Seller> = mutableListOf()
+    val sellerAccounts: MutableList<Int> = mutableListOf()
 ) {
-    val _price = price
+    val productPrice = price
 }

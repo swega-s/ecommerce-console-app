@@ -30,12 +30,12 @@ sealed class Customer(
 
         val resultProducts = when (utilClass.getChoice()) {
             1    -> {
-                print("Enter a name: ")
+                print("Enter a name: \n")
                 val name = utilClass.getStringInput()
                 catalog.searchProductsByName(name)
             }
             2    -> {
-                print("Enter a category: ")
+                print("Enter a category: \n")
                 val category = utilClass.getStringInput()
                 catalog.searchProductsByCategory(category)
             }
@@ -50,7 +50,7 @@ sealed class Customer(
                 println(
                     "${index + 1}. ${product.name} " +
                             "-> Category: ${product.category.name} " +
-                            "-> Rs. ${product._price}"
+                            "-> Rs. ${product.productPrice}"
                 )
             }
             return chooseProductToAddToCart(resultProducts)
@@ -82,7 +82,7 @@ sealed class Customer(
             productName = product.name,
             productID = product.id,
             quantity = requiredQuantity,
-            price = product._price
+            price = product.productPrice
         )
     }
 }
